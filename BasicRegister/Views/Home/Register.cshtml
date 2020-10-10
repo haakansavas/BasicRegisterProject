@@ -1,0 +1,61 @@
+﻿@using BasicRegister.Models
+@model RegisterViewModel
+@{
+    Layout = null;
+}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="~/Content/registerform.css" rel="stylesheet" />
+<div class="container">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please sign up for My Web Pages <small>Basic Register</small></h3>
+                </div>
+                <div class="panel-body">
+                    @*Form yazan yere BeginForm koyduk*@
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary()  @*Şifre Kontrol*@
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                   @Html.TextBoxFor(x => x.Name, new {@class="form-control",Required="required",Placeholder="Name"})
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", Required = "required", Placeholder = "Last Name" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", Required = "required", Placeholder = "Email",type="email"})
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", Required = "required", Placeholder = "Password",type="password"})
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.RePassword, new { @class = "form-control", Required = "required", Placeholder = "Password", type = "password" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Register" class="btn btn-info btn-block">
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

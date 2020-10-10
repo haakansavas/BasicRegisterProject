@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if (Session["user"] != null)
+{
+    <h2>Welcome My Page</h2>
+    @Html.ActionLink("LOGOUT","Logout")
+}
+else
+{
+    <h2>Index Page</h2>
+}
+
